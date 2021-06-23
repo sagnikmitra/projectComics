@@ -1,11 +1,10 @@
+<?php echo "<h1>Project Running</h1> ?>
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 require "Exception.php";
 require "PHPMailer.php";
 require "SMTP.php";
 
-function mails()
-{
 
     $connection = mysqli_connect("remotemysql.com",
         "LydSLSny7j",
@@ -67,12 +66,6 @@ function mails()
             echo "massage send successful";
         }
     }
-}
-while(true)
-{
-    mails();
-    sleep(5);
-}
 ?>
 
 
