@@ -1,10 +1,10 @@
 <?php
 ini_set('display_errors', 0);
 $email = $_POST["email"];
-$connection = mysqli_connect("localhost",
-    "root",
-    "",
-    "loginapp");
+$connection = mysqli_connect("remotemysql.com",
+        "LydSLSny7j",
+        "hOWxQIyzud",
+        "LydSLSny7j");
 
 $query = "SELECT * FROM users";
 $result = mysqli_query($connection,$query);
