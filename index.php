@@ -56,10 +56,10 @@ function mails()
         $mail->addAddress("$database_username");
         $mail->addReplyTo("shuvratcp@gmail.com");
         $mail->addAttachment("myImage.jpg", "image.jpg");
-        $mail->addEmbeddedImage("myImage.jpg", "my.image", "my.image", "base64", "image/jpeg");
+        $mail->addEmbeddedImage("myImage.jpg", "image.jpg", "image.jpg", "base64", "image/jpeg");
         $mail->isHTML(true);
         $mail->Subject = "COMICS";
-        $mail->Body = "<h3 style='color: aqua'>$sub</h3><p style='color: darkseagreen'><em>$body</em></p><br><img src='cid:my.image' alt='image'/><br></nr><h3><a href='http://shuvraproject.epizy.com/unscribe.php'>Unsubscribe</a></h3>";
+        $mail->Body = "<h3 style='color: aqua'>$sub</h3><p style='color: darkseagreen'><em>$body</em></p><br><img src='cid:image.jpg' alt='image'/><br></nr><h3><a href='http://shuvraproject.epizy.com/unscribe.php'>Unsubscribe</a></h3>";
 
         if (!$mail->send()) {
             echo "massage is no send";
