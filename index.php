@@ -1,4 +1,4 @@
-<?php echo "<h1>Project Running</h1> ?>
+<?php echo "<h1>Project Running</h1>" ?>
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 require "Exception.php";
