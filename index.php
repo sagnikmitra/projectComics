@@ -59,7 +59,7 @@ function mails()
         $mail->addEmbeddedImage("myImage.jpg", "image.jpg", "image.jpg", "base64", "image/jpeg");
         $mail->isHTML(true);
         $mail->Subject = "COMICS";
-        $mail->Body = "<h3 style='color: aqua'>$sub</h3><p style='color: darkseagreen'><em>$body</em></p><br><img src='cid:image.jpg' alt='image'/><br></nr><h3><a href='http://shuvraproject.epizy.com/unscribe.php'>Unsubscribe</a></h3>";
+        $mail->Body = "<h3 style='color: aqua'>$sub</h3><p style='color: darkseagreen'><em>$body</em></p><br><img src='cid:image.jpg' alt='image'/><br></nr><h3><a href='https://projectcomics.herokuapp.com/templates/unscribe.php'>Unsubscribe</a></h3>";
 
         if (!$mail->send()) {
             echo "massage is no send";
