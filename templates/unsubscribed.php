@@ -28,8 +28,8 @@ while($row = mysqli_fetch_assoc($result))
         else
             { ?>
             <?php include "header.php"; ?>
-            <body>
-            <h4 style="color: #2EC486;">Successfully Unsubscribed</h4>
+            <body class="mw">
+            <h4 style="color: #2EC486">Successfully Unsubscribed</h4>
             </div>
             </div>
             </body>
@@ -43,7 +43,7 @@ if ($email !=$database_username)
 
 
     <?php include "header.php"; ?>
-    <body>
+    <body class="mw">
             <h4 style="color: red">Invalid Email!</h4>
         </div>
     </div>
