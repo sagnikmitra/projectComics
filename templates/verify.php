@@ -26,14 +26,10 @@ while ($row = mysqli_fetch_assoc($result)){
         {?>
             <?php include "header.php"; ?>
                 <body>
-            <div  class="jumbotron">
-                <div class="container">
                     <h4>You are verified</h4>
                     <form method="POST" action="https://projectcomics.herokuapp.com/config.php">
-                        <input class="btn btn-primary" type="submit" name="submit" value="Send Comics">
+                        <input  type="submit" name="submit" value="Send Comics">
                     </form>
-                </div>
-            </div>
                 </body>
             </html>
         <?php }
