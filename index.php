@@ -2,8 +2,9 @@
 <body>
     <h2>Welcome</h1>
     <br>
-    <ul>
+    
     <p>Enter you email address to get Comies every five minutes</p>
+    <ul>
         <li>First you need to register</li>
     </ul>
 <form action="https://projectcomics.herokuapp.com/login.php" method="GET" >
