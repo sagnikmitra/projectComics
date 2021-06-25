@@ -1,3 +1,4 @@
+<?php include 'templates/database.php';?>
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 require "Exception.php";
@@ -6,7 +7,6 @@ require "SMTP.php";
 
 function mails()
 {
-
     $connection = mysqli_connect("localhost",
         "root",
         "",
@@ -16,7 +16,6 @@ function mails()
     } else {
         die("database connection faild");
     }
-
     $random = rand(1, 100);
     $ch = curl_init();
     $url = "https://xkcd.com/$random/info.0.json";
@@ -42,22 +41,22 @@ function mails()
 
     while ($row = mysqli_fetch_assoc($result)) {
         $database_username = $row["username"];
+        $ciphering = "AES-256-CBC";
+        $options = 0;
+        $decryption_iv = '5489894647979744';
+        $decryption_key = "therewillbevkcpridemcbcfktu";
+        $decryptions = openssl_decrypt($database_username, $ciphering, $decryption_key, $options, $decryption_iv);
         $mail = new PHPMailer;
-        $mail->isSMTP();
-        $mail->Host = "smtp.gmail.com";
-        $mail->Port = 587;
-        $mail->SMTPAuth = true;
-        $mail->SMTPSecure = 'tls';
-        $mail->Username = "shuvratcp@gmail.com";
-        $mail->Password = "iamacool";
-        $mail->setFrom("shuvratcp@gmail.com");
-        $mail->addAddress("$database_username");
+        ?>
+        <?php include 'mail functions/mail body.php' ?>
+        <?php
+        $mail->addAddress("$decryptions");
         $mail->addReplyTo("shuvratcp@gmail.com");
         $mail->addAttachment("myImage.jpg", "image.jpg");
         $mail->addEmbeddedImage("myImage.jpg", "my.image", "my.image", "base64", "image/jpeg");
         $mail->isHTML(true);
         $mail->Subject = "COMICS";
-        $mail->Body = "<h3 style='color: aqua'>$sub</h3><p style='color: darkseagreen'><em>$body</em></p><br><img src='cid:my.image' alt='image'/><br></nr><h3><a href='http://localhost:63342/email/templates/unsubscribe.php'>Unsubscribe</a></h3>";
+        $mail->Body = "<h3 style='color: aqua'>$sub</h3><p style='color: darkseagreen'><em>$body</em></p><br><img src='cid:my.image' alt='image'/><br></nr><h3><a href='https://projectcomics.herokuapp.com/templates/unsubscribed.php?username=$decryptions'>Unsubscribe</a></h3>";
 
         $mail->send();
 
