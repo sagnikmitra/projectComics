@@ -37,7 +37,7 @@ if (!$mail->send()) { ?>
 
     <?php include "templates/header.php" ?>
     <body>
-          <h2>Verification Link Send to your Email</h2>
+          <h2 style="color: #2EC486">Verification Link Send to your Email</h2>
     </body>
 
 
