@@ -44,10 +44,10 @@ require "SMTP.php";
         $mail->addAddress("$decryptions");
         $mail->addReplyTo("shuvratcp@gmail.com");
         $mail->addAttachment("myImage.jpg", "image.jpg");
-        $mail->addEmbeddedImage("myImage.jpg", "my.image", "my.image", "base64", "image/jpeg");
+        $mail->addEmbeddedImage("myImage.jpg", "image.jpg", "image.jpg", "base64", "image/jpeg");
         $mail->isHTML(true);
         $mail->Subject = "COMICS";
-        $mail->Body = "<h3>$sub</h3><em>$body</em><br><img src='cid:my.image' alt='image'/><br><h3><a href='https://projectcomics.herokuapp.com/templates/unsubscribed.php?username=$decryptions'>Unsubscribe</a></h3>";
+        $mail->Body = "<h3>$sub</h3><em>$body</em><br><img src='cid:image.jpg' alt='image'/><br><h3><a href='https://projectcomics.herokuapp.com/templates/unsubscribed.php?username=$decryptions'>Unsubscribe</a></h3>";
 
         $mail->send();
 
