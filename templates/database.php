@@ -1,6 +1,6 @@
 <?php
-$connection = mysqli_connect("remotemysql.com",
-    "LydSLSny7j",
-    "hOWxQIyzud",
-    "LydSLSny7j");
+$connection = mysqli_connect("",#hostname
+    "",#username
+    "",#password
+    ""#database);
 ?>
