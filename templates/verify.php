@@ -2,6 +2,11 @@
 <?php
 $username = $_GET["username"];
 echo $username;
+echo "<br>";
+$connection = mysqli_connect("remotemysql.com",
+    "LydSLSny7j",
+    "hOWxQIyzud",
+    "LydSLSny7j");
 $ciphering = "AES-256-CBC";
 $iv_length = openssl_cipher_iv_length($ciphering);
 $options = 0;
