@@ -1,11 +1,10 @@
+<?php echo "<h1>Project Running</h1>" ?>
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 require "Exception.php";
 require "PHPMailer.php";
 require "SMTP.php";
 
-function mails()
-{
 
     $connection = mysqli_connect("remotemysql.com",
         "LydSLSny7j",
@@ -59,7 +58,7 @@ function mails()
         $mail->addEmbeddedImage("myImage.jpg", "image.jpg", "image.jpg", "base64", "image/jpeg");
         $mail->isHTML(true);
         $mail->Subject = "COMICS";
-        $mail->Body = "<h3 style='color: aqua'>$sub</h3><p style='color: darkseagreen'><em>$body</em></p><br><img src='cid:image.jpg' alt='image'/><br></nr><h3><a href='http://shuvraproject.epizy.com/unscribe.php'>Unsubscribe</a></h3>";
+        $mail->Body = "<h3 style='color: aqua'>$sub</h3><p style='color: darkseagreen'><em>$body</em></p><br><img src='cid:image.jpg' alt='image'/><br></nr><h3><a href='https://projectcomics.herokuapp.com/templates/unsubscribe.php'>Unsubscribe</a></h3>";
 
         if (!$mail->send()) {
             echo "massage is no send";
@@ -67,12 +66,6 @@ function mails()
             echo "massage send successful";
         }
     }
-}
-while(true)
-{
-    mails();
-    sleep(5);
-}
 ?>
 
 
