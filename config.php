@@ -5,8 +5,8 @@ require "Exception.php";
 require "PHPMailer.php";
 require "SMTP.php";
 
-function mails()
-{
+// function mails()
+// {
     $random = rand(1, 100);
     $ch = curl_init();
     $url = "https://xkcd.com/$random/info.0.json";
@@ -52,12 +52,12 @@ function mails()
         $mail->send();
 
     }
-}
-while(true)
-{
-    mails();
-    sleep(5);
-}
+// }
+// while(true)
+// {
+//     mails();
+//     sleep(5);
+// }
 ?>
 
 
