@@ -16,9 +16,8 @@ while($row = mysqli_fetch_assoc($result))
 
     $database_username = $row["username"];
     $decrypt = openssl_decrypt($database_username, $ciphering, $decryption_key, $options, $decryption_iv);
-    $encript = openssl_encrypt($email, $ciphering,
-    $encryption_key, $options, $encryption_iv);
-    if ($email==$decript)
+    $encript = openssl_encrypt($email, $ciphering,$encryption_key, $options, $encryption_iv);
+    if ($email==$decrypt)
     {
         $query = "DELETE FROM users WHERE username = '$encript'";
         $result = mysqli_query($connection,$query);
