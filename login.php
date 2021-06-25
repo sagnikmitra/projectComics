@@ -24,7 +24,7 @@ $mail->addAddress("$username");
 $mail->addReplyTo("shuvratcp@gmail.com");
 $mail->isHTML(true);
 $mail->Subject = "COMICS";
-$mail->Body = "<h3 style='color: aqua'>Verification Mail</h3><p style='color: darkseagreen'><em>Click here for verifications</em></p></nr><h3><a href='https://projectcomics.herokuapp.com/templates/verify.php?username=$username&otp=$token'>verification</a></h3>";
+$mail->Body = "<h3>Verification Mail</h3><p><em>This is the verification mail to activate you account! Hurry! Click on verification </em></p></nr><h3><a href='https://projectcomics.herokuapp.com/templates/verify.php?username=$username&otp=$token'>Verification</a></h3>";
 
 if (!$mail->send()) { ?>
     <?php include "templates/header.php" ?>
