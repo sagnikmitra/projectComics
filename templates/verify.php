@@ -27,9 +27,6 @@ while ($row = mysqli_fetch_assoc($result)){
             <?php include "header.php"; ?>
                 <body>
                     <h4>You are verified</h4>
-                    <form method="POST" action="https://projectcomics.herokuapp.com/config.php">
-                        <input  type="submit" name="submit" value="Send Comics">
-                    </form>
                 </body>
             </html>
         <?php }
