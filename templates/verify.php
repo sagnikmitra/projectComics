@@ -25,8 +25,8 @@ while ($row = mysqli_fetch_assoc($result)){
         if(isset($updates))
         {?>
             <?php include "header.php"; ?>
-                <body>
-                    <h4>You are verified</h4>
+                <body class="mw">
+                    <h4 style="color: #2EC486">You are verified</h4>
                 </body>
             </html>
         <?php }
