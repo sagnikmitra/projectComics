@@ -12,7 +12,8 @@ $encript_username = openssl_encrypt($username, $ciphering,
 echo $encript_username;
 
 $otp = $_GET['otp'];
-
+ echo "<br>";
+    echo $otp;
 $querys = "SELECT * FROM users";
 $result = mysqli_query($connection,$querys);
 while ($row = mysqli_fetch_assoc($result)){
