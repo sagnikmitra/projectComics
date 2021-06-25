@@ -18,9 +18,13 @@ $result = mysqli_query($connection,$querys);
 while ($row = mysqli_fetch_assoc($result)){
 
     $data_otp = $row['otp'];
+    echo "<br>";
+    echo $data_otp;
     if ($otp == $data_otp)
     {
         $query = "UPDATE users SET sub='yes' WHERE username = '$encript_username'";
+        echo "<br>";
+    echo $query;
         $updates = mysqli_query($connection,$query);
         if(isset($updates))
         {?>
