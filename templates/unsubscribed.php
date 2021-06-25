@@ -2,11 +2,6 @@
 <?php
 ini_set('display_errors', 0);
 $email = $_POST["email"];
-$connection = mysqli_connect("localhost",
-    "root",
-    "",
-    "loginapp");
-
 $query = "SELECT * FROM users";
 $result = mysqli_query($connection,$query);
 while($row = mysqli_fetch_assoc($result))
