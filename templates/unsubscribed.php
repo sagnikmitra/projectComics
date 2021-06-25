@@ -29,7 +29,7 @@ while($row = mysqli_fetch_assoc($result))
             { ?>
             <?php include "header.php"; ?>
             <?php include "body.php"; ?>
-            <h4 class="text-success">Successfully Unsubscribed</h4>
+            <h4">Successfully Unsubscribed</h4>
             </div>
             </div>
             </body>
@@ -44,7 +44,7 @@ if ($email !=$database_username)
 
     <?php include "header.php"; ?>
     <?php include "body.php"; ?>
-            <h4 class="text-danger">Invalid Email!</h4>
+            <h4>Invalid Email!</h4>
         </div>
     </div>
     </body>
