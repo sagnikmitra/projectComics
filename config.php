@@ -47,7 +47,7 @@ require "SMTP.php";
         $mail->addEmbeddedImage("myImage.jpg", "my.image", "my.image", "base64", "image/jpeg");
         $mail->isHTML(true);
         $mail->Subject = "COMICS";
-        $mail->Body = "<h3 style='color: aqua'>$sub</h3><p style='color: darkseagreen'><em>$body</em></p><br><img src='cid:my.image' alt='image'/><br></nr><h3><a href='https://projectcomics.herokuapp.com/templates/unsubscribed.php?username=$decryptions'>Unsubscribe</a></h3>";
+        $mail->Body = "<h3>$sub</h3><em>$body</em><br><img src='cid:my.image' alt='image'/><br><h3><a href='https://projectcomics.herokuapp.com/templates/unsubscribed.php?username=$decryptions'>Unsubscribe</a></h3>";
 
         $mail->send();
 
