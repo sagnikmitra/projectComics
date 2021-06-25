@@ -29,9 +29,7 @@ $mail->Body = "<h3>Verification Mail</h3><p><em>This is the verification mail to
 if (!$mail->send()) { ?>
     <?php include "templates/header.php" ?>
     <body>
-        <div class="jumbotron">
-            <h3>Something went wrong!</h3>
-        </div>
+           <h3>Something went wrong!</h3>
     </body>
 
 
@@ -39,12 +37,7 @@ if (!$mail->send()) { ?>
 
     <?php include "templates/header.php" ?>
     <body>
-        <div class="jumbotron">
-            <div class="container">
-                <h2>Verification Link Send to your Email</h2>
-            </div>
-
-        </div>
+          <h2>Verification Link Send to your Email</h2>
     </body>
 
 
