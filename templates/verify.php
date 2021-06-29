@@ -12,9 +12,7 @@ $token = $_GET['token'];
 $querys = "SELECT * FROM users";
 $result = mysqli_query($connection,$querys);
 while ($row = mysqli_fetch_assoc($result)){
-    echo "whiles";
     $data_token = $row['token'];
-    echo $data_token;
     if ($data_token == $token)
     {
         $query = "UPDATE users SET sub='yes' WHERE username = '$encript_username'";
