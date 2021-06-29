@@ -51,7 +51,7 @@ if( $row === 0 )
 }
 else
 {
-    echo "<h2 style='color: #2EC486'>User alredy exists</h2> <br> <p style='color: darkblue'>If you want to Unsubscribe Please check your Email</p>";
+    echo "<h2 style='color: #2EC486'>Verification link already send to your mail. <br> Please Chck your Inbox or Spam</h2> <br> <p style='color: darkblue'>If you want to Unsubscribe Please check your Email</p>";
 }
 
 ?>
