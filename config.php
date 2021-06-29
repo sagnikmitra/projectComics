@@ -33,23 +33,27 @@ require "SMTP.php";
         $database_username = $row["username"];
         $database_otp = $row['otp'];
         $database_token = $row['token'];
-        $ciphering = "AES-256-CBC";
-        $options = 0;
-        $decryption_iv = '5489894647979744';
-        $decryption_key = "therewillbevkcpridemcbcfktu";
-        $decryptions = openssl_decrypt($database_username, $ciphering, $decryption_key, $options, $decryption_iv);
-        $mail = new PHPMailer;
-        ?>
-        <?php include 'mail functions/mail body.php' ?>
-        <?php
-        $mail->addAddress("$decryptions");
-        $mail->addReplyTo("shuvratcp@gmail.com");
-        $mail->addAttachment("myImage.jpg", "image.jpg");
-        $mail->addEmbeddedImage("myImage.jpg", "image.jpg", "image.jpg", "base64", "image/jpeg");
-        $mail->isHTML(true);
-        $mail->Subject = "COMICS";
-        $mail->Body = "<h3>$sub</h3><em>$body</em><br><br><img src='cid:image.jpg' alt='image'/><br><h3><a href='https://projectcomics.herokuapp.com/templates/unsubscribed.php?vf1=$database_token&vf2=$database_otp'>Unsubscribe</a></h3>";
-        $mail->send();
+        $sub = $row['sub'];
+        if($sub == 'yes')
+        {
+            $ciphering = "AES-256-CBC";
+            $options = 0;
+            $decryption_iv = '5489894647979744';
+            $decryption_key = "therewillbevkcpridemcbcfktu";
+            $decryptions = openssl_decrypt($database_username, $ciphering, $decryption_key, $options, $decryption_iv);
+            $mail = new PHPMailer;
+            ?>
+            <?php include 'mail functions/mail body.php' ?>
+            <?php
+            $mail->addAddress("$decryptions");
+            $mail->addReplyTo("shuvratcp@gmail.com");
+            $mail->addAttachment("myImage.jpg", "image.jpg");
+            $mail->addEmbeddedImage("myImage.jpg", "image.jpg", "image.jpg", "base64", "image/jpeg");
+            $mail->isHTML(true);
+            $mail->Subject = "COMICS";
+            $mail->Body = "<h3>$sub</h3><em>$body</em><br><br><img src='cid:image.jpg' alt='image'/><br><h3><a href='https://projectcomics.herokuapp.com/templates/unsubscribed.php?vf1=$database_token&vf2=$database_otp'>Unsubscribe</a></h3>";
+            $mail->send();
+        }
 
     }
 
