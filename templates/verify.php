@@ -1,5 +1,6 @@
 <?php include "database.php"  ?>
 <?php
+ini_set('display_errors', 0);
 $username = $_GET["username"];
 $ciphering = "AES-256-CBC";
 $iv_length = openssl_cipher_iv_length($ciphering);
