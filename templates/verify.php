@@ -1,24 +1,20 @@
 <?php include "database.php"  ?>
 <?php
 $username = $_GET["username"];
-$connection = mysqli_connect("remotemysql.com",
-    "LydSLSny7j",
-    "hOWxQIyzud",
-    "LydSLSny7j");
 $ciphering = "AES-256-CBC";
 $iv_length = openssl_cipher_iv_length($ciphering);
 $options = 0;
 $encryption_iv = '5489894647979744';
 $encryption_key = "therewillbevkcpridemcbcfktu";
-$encript_username = openssl_encrypt($username, $ciphering,
-    $encryption_key, $options, $encryption_iv);
-$otp = $_GET['otp'];
+$encript_username = openssl_encrypt($username, $ciphering, $encryption_key, $options, $encryption_iv);
+$token = $_GET['token'];
 $querys = "SELECT * FROM users";
 $result = mysqli_query($connection,$querys);
 while ($row = mysqli_fetch_assoc($result)){
-
-    $data_otp = $row['otp'];
-    if ($otp == $data_otp)
+    echo "whiles";
+    $data_token = $row['token'];
+    echo $data_token;
+    if ($data_token == $token)
     {
         $query = "UPDATE users SET sub='yes' WHERE username = '$encript_username'";
         $updates = mysqli_query($connection,$query);
@@ -30,5 +26,10 @@ while ($row = mysqli_fetch_assoc($result)){
                 </body>
             </html>
         <?php }
-}}
+    }
+    else{
+        echo "Error 404";
+    }
+}
 ?>
+
