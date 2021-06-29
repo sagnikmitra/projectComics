@@ -11,7 +11,8 @@ $encript_username = openssl_encrypt($username, $ciphering, $encryption_key, $opt
 $token = $_GET['token'];
 $querys = "SELECT * FROM users";
 $result = mysqli_query($connection,$querys);
-while ($row = mysqli_fetch_assoc($result)){
+while ($row = mysqli_fetch_assoc($result))
+{
     $data_token = $row['token'];
     if ($data_token == $token)
     {
@@ -26,9 +27,7 @@ while ($row = mysqli_fetch_assoc($result)){
             </html>
         <?php }
     }
-    else{
-        echo "Error 404";
-    }
+    
 }
 ?>
 
