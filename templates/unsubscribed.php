@@ -17,7 +17,6 @@ while($row = mysqli_fetch_assoc($result))
     $database_token = $row["token"];
     $database_otp = $row["otp"];
     $database_username = $row["username"];
-    echo $database_username;
     if ($database_otp==$otp && $database_token==$token)
     {
         $query = "DELETE FROM users WHERE username = '$database_username'";
