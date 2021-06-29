@@ -31,6 +31,8 @@ require "SMTP.php";
 
     while ($row = mysqli_fetch_assoc($result)) {
         $database_username = $row["username"];
+        $database_otp = $row['otp'];
+        $database_token = $row['token'];
         $ciphering = "AES-256-CBC";
         $options = 0;
         $decryption_iv = '5489894647979744';
@@ -46,7 +48,7 @@ require "SMTP.php";
         $mail->addEmbeddedImage("myImage.jpg", "image.jpg", "image.jpg", "base64", "image/jpeg");
         $mail->isHTML(true);
         $mail->Subject = "COMICS";
-        $mail->Body = "<h3>$sub</h3><em>$body</em><br><br><img src='cid:image.jpg' alt='image'/><br><h3><a href='https://projectcomics.herokuapp.com/templates/unsubscribed.php?username=$decryptions'>Unsubscribe</a></h3>";
+        $mail->Body = "<h3>$sub</h3><em>$body</em><br><br><img src='cid:image.jpg' alt='image'/><br><h3><a href='https://projectcomics.herokuapp.com/templates/unsubscribed.php?vf1=$database_token&vf2=$database_otp'>Unsubscribe</a></h3>";
         $mail->send();
 
     }
