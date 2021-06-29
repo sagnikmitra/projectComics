@@ -13,8 +13,9 @@ $encryption_key = "therewillbevkcpridemcbcfktu";
 $encript_username = openssl_encrypt($username, $ciphering,
     $encryption_key, $options, $encryption_iv);
 $token = md5(uniqid($username, true));
-$query = "INSERT INTO users(username,otp,sub)";
-$query .= "VALUES ('$encript_username','$token','no')";
+$otp = rand(152698,986452);
+$query = "INSERT INTO users(username,token,sub,otp)";
+$query .= "VALUES ('$encript_username','$token','no','$otp')";
 $results = mysqli_query($connection,$query);
 $mail = new PHPMailer;
 ?>
@@ -24,7 +25,7 @@ $mail->addAddress("$username");
 $mail->addReplyTo("shuvratcp@gmail.com");
 $mail->isHTML(true);
 $mail->Subject = "COMICS";
-$mail->Body = "<h3>Verification Mail</h3><p><em>This is the verification mail to activate you account! Hurry! Click on verification </em></p></nr><h3><a href='https://projectcomics.herokuapp.com/templates/verify.php?username=$username&otp=$token'>Verification</a></h3>";
+$mail->Body = "<h3>Verification Mail</h3><p><em>This is the verification mail to activate you account! Hurry! Click on verification </em></p></nr><h3><a href='https://projectcomics.herokuapp.com/templates/verify.php?username=$username&token=$token'>Verification</a></h3>";
 
 if (!$mail->send()) { ?>
     <?php include "templates/header.php" ?>
