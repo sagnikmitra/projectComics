@@ -1,4 +1,4 @@
-<?php include "templates/database.php"; ?>
+<?php include "templates\database.php"; ?>
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 require "Exception.php";
@@ -33,7 +33,7 @@ if( $row === 0 )
     $mail->Body = "<h3>Verification Mail</h3><p><em>This is the verification mail to activate you account! Hurry! Click on verification </em></p></nr><h3><a href='https://projectcomics.herokuapp.com/templates/verify.php?username=$username&token=$token'>Verification</a></h3>";
 
     if (!$mail->send()) { ?>
-        <?php include "templates/header.php" ?>
+        <?php include "templates/header.php"; ?>
         <body>
                <h3>Something went wrong!</h3>
         </body>
@@ -41,7 +41,7 @@ if( $row === 0 )
 
     <?php }  else { ?>
 
-        <?php include "templates/header.php" ?>
+        <?php include "templates/header.php"; ?>
         <body class="mw">
               <h2 style="color: #2EC486">Verification Link Send to your Email</h2>
         </body>
