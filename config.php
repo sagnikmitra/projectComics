@@ -1,4 +1,4 @@
-<?php include 'templates/database.php';?>
+<?php include 'templates\database.php';?>
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 require "Exception.php";
