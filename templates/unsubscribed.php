@@ -1,4 +1,4 @@
-<?php include "database.php" ?>
+<?php include "database.php"; ?>
 <?php
 ini_set('display_errors', 0);
 $token = $_GET["vf1"];
