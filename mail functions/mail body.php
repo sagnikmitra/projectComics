@@ -4,7 +4,7 @@ $mail->Host = "smtp.gmail.com";
 $mail->Port = 587;
 $mail->SMTPAuth = true;
 $mail->SMTPSecure = 'tls';
-$mail->Username = "shuvratcp@gmail.com";
-$mail->Password = "iamacool";
+$mail->Username = "";
+$mail->Password = "";
 $mail->setFrom("shuvratcp@gmail.com");
 ?>
